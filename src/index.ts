@@ -2,14 +2,13 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 
-import { ErrorHandler } from './src/error-handler';
+import { ErrorHandler } from './api/errors/error-handler';
 
-import { DataPair, MNISTLoader } from './src/loader';
-import { ErrorFunction, MeanSquaredError } from './lib/error-functions';
-import { Sigmoid } from './lib/activations';
-import { MatrixMath } from './lib/matrix';
-import { max } from 'numjs';
-import MNISTClassifier from './src/mnist-classifier';
+import { DataPair, MNISTLoader } from './utils/loader';
+import { ErrorFunction, MeanSquaredError } from '../lib/nn/error-functions';
+import { Sigmoid } from '../lib/nn/activations';
+import { MatrixMath } from '../lib/mat/matrix';
+import MNISTClassifier from './nns/mnist-classifier';
 
 dotenv.config();
 

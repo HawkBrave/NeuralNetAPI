@@ -1,6 +1,6 @@
-import Classifier from "../lib/classifier";
-import { ErrorFunction } from "../lib/error-functions";
-import { DataPair } from "./loader";
+import Classifier from "../../lib/nn/classifier";
+import { ErrorFunction } from "../../lib/nn/error-functions";
+import { DataPair } from "../utils/loader";
 
 export type Prediction = {
   answer: number;

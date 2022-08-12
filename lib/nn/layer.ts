@@ -1,5 +1,5 @@
 import { ActivationFunction } from './activations';
-import { Matrix, MatrixMath } from './matrix';
+import { Matrix, MatrixMath } from '../mat/matrix';
 
 export class Layer {
   private _id: number;

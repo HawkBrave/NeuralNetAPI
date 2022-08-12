@@ -1,7 +1,7 @@
 import { ActivationFunction } from "./activations";
 import { ErrorFunction } from "./error-functions";
 import { Layer } from "./layer";
-import { Matrix, MatrixMath } from "./matrix";
+import { Matrix, MatrixMath } from "../mat/matrix";
 
 export default class Classifier {
   errorFunction: ErrorFunction;
