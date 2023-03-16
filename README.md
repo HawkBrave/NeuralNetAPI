@@ -67,7 +67,7 @@ curl /predict -X POST \
 
 | Field name | Data type |
 | --- | --- |
-| trainLength (optional) | int |
+| epochs (optional) | int |
 | learningRate (optional) | float |
 
 #### Response Fields
@@ -83,16 +83,16 @@ curl /predict -X POST \
 ```curl
 curl /train -X POST \
   -H "Content-Type: application/json" \
-  -d "{\"trainLength\": 10000}"
+  -d "{\"epochs\": 5}"
 ```
 
 #### Example Response
 
 ```json
 {
-  "totalTrained": 10000,
+  "totalTrained": 300000,
   "status": "Done",
-  "timeElapsedInSeconds": 25.209
+  "timeElapsedInSeconds": 756.719
 }
 ```
 
