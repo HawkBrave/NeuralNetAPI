@@ -14,7 +14,7 @@ dotenv.config();
 
 const app = express();
 const errHandler = new ErrorHandler();
-const port = process.env.PORT;
+const port = process.env.PORT || 6969;
 
 const classifier = new MNISTClassifier(new MeanSquaredError(), 0.1);
 classifier.addDenseLayer(784, new Sigmoid());
@@ -23,7 +23,7 @@ classifier.addDenseLayer(10, new Sigmoid());
 
 app.set("train-data-loaded", false);
 app.set("test-data-loaded", false);
-let loader = new MNISTLoader(path.join(__dirname + './../data'));
+let loader = new MNISTLoader(path.join(__dirname + './../../data'));
 let trainData: Array<DataPair>;
 let testData: Array<DataPair>;
 
@@ -44,7 +44,7 @@ app.post('/predict', (req, res) => {
 });
 
 app.post('/train', async (req, res) => {
-  let trainLength: number = req.body.trainLength;
+  let epochs: number = req.body.epochs;
   let learningRate: number = req.body.learningRate;
 
   if (!app.get("train-data-loaded")) {
@@ -53,7 +53,7 @@ app.post('/train', async (req, res) => {
   }
 
   let result = classifier.train(trainData, {
-    trainLength,
+    epochs,
     learningRate
   });
   return res.status(200).json(result);

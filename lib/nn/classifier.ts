@@ -60,10 +60,9 @@ export default class Classifier {
     //let totalErr = new Matrix(this.layers[this.layers.length - 1].nodes, 1);
 
     // loop for every hand-written digit data
-    console.log('');
+    let progress = 0;
     for (let i = 0; i < (<Array<any>> inputs).length; i++) {
-      process.stdout.write(`Epoch: ${i+1}\r`);
-
+      process.stdout.write(`Progress: ${progress}%\x1b[0G`);
       let x = (<Array<any>> inputs)[i];
       let y = Matrix.from((<Array<any>> targets)[i]);
 
@@ -95,6 +94,7 @@ export default class Classifier {
         // (64, 1) after first iter
         loss = MatrixMath.dot(MatrixMath.transpose(<Matrix> layer.weights), loss);
       }
+      progress = Math.floor(((100 * i) / (<Array<any>> inputs).length)) + 1;
     }
     console.log();
   }
