@@ -81,7 +81,7 @@ export default class MNISTClassifier extends Classifier {
 
     let totalTimeElapsed = 0;
     for (let e = 0; e < epochs; e++) {
-      console.log(`Epoch: ${e}`);
+      console.log(`Epoch: ${e+1}`);
 
       let startTime = new Date().getTime();
       this.backward(trainInputs, trainTargets);
