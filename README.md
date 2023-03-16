@@ -39,7 +39,7 @@ curl / -X GET
 #### Example Request
 
 ```curl
-curl /predict -X POST \
+curl /api/mnist/predict -X POST \
   -H "Content-Type: application/json" \
   -d "@./test_data/test-digit-7.json"
 ```
@@ -81,7 +81,7 @@ curl /predict -X POST \
 #### Example Request
 
 ```curl
-curl /train -X POST \
+curl /api/mnist/train -X POST \
   -H "Content-Type: application/json" \
   -d "{\"epochs\": 5}"
 ```
@@ -122,7 +122,7 @@ curl /train -X POST \
 #### Example Request
 
 ```curl
-curl /test -X POST \
+curl /api/mnist/test -X POST \
   -H "Content-Type: application/json"
 ```
 
