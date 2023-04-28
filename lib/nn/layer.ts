@@ -20,7 +20,7 @@ export class Layer {
   }
 
   propagate(input: Matrix) {
-    if (input.shape.rows != this.lastPropagatedInput.shape.rows) {
+    if (input.shape().rows != this.lastPropagatedInput.shape().rows) {
       throw new Error(`[Layer${this._id}]: Cannot propagate input of shape {${input.shape.rows}, ${input.shape.cols}}. Input rows must match layer node count of ${this.nodes}.`);
     }
     
